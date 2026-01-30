@@ -205,4 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-.claude
+.claude*.log
+synthetic_video_prompts.json
+output_full.log
+final_generation.log
+final_run.log
+final_attempt.log
+manual_run.log
+pro_run.log
+output.log
