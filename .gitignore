@@ -210,3 +210,13 @@ __marimo__/
 
 # MacOS
 .DS_Store
+
+.claude*.log
+synthetic_video_prompts.json
+output_full.log
+final_generation.log
+final_run.log
+final_attempt.log
+manual_run.log
+pro_run.log
+output.log
