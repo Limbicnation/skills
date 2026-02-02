@@ -214,3 +214,6 @@ final_attempt.log
 manual_run.log
 pro_run.log
 output.log
+
+# Log files
+*.log
