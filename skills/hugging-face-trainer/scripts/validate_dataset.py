@@ -62,13 +62,7 @@ def validate_dataset(data_dir: Path, caption_ext: str = "txt"):
             with Image.open(img_path) as img:
                 res = f"{img.width}x{img.height}"
                 resolutions[res] = resolutions.get(res, 0) + 1
-                
-                # Check for transparency
-                if img.mode in ("RGBA", "P"):
-                    has_alpha = True
-                else:
-                    has_alpha = False
-                    
+
         except Exception as e:
             corrupted_images.append((img_path.name, str(e)))
     

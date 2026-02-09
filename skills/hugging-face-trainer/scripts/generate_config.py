@@ -117,6 +117,51 @@ CONFIG_TEMPLATES = {
             }],
         },
     },
+    "SD1.5": {
+        "job": "extension",
+        "config": {
+            "name": "sd15-lora",
+            "process": [{
+                "type": "sd_trainer",
+                "training_folder": "./output",
+                "device": "cuda:0",
+                "trigger_word": "your trigger",
+                "network": {
+                    "type": "lora",
+                    "linear": 32,
+                    "linear_alpha": 32,
+                },
+                "save": {
+                    "dtype": "float16",
+                    "save_every": 500,
+                    "max_step_saves_to_keep": 3,
+                },
+                "datasets": [{
+                    "folder_path": "./training_data",
+                    "caption_ext": "txt",
+                    "caption_dropout_rate": 0.05,
+                    "shuffle_tokens": False,
+                    "cache_latents_to_disk": True,
+                    "resolution": 512,
+                }],
+                "train": {
+                    "batch_size": 2,
+                    "steps": 2000,
+                    "gradient_accumulation_steps": 2,
+                    "train_unet": True,
+                    "train_text_encoder": False,
+                    "gradient_checkpointing": False,
+                    "noise_scheduler": "ddpm",
+                    "optimizer": "adamw",
+                    "lr": 1e-4,
+                    "dtype": "fp16",
+                },
+                "model": {
+                    "name_or_path": "runwayml/stable-diffusion-v1-5",
+                },
+            }],
+        },
+    },
 }
 
 
@@ -170,7 +215,21 @@ def generate_config(model: str, vram_gb: int, output_path: str):
             train_config["batch_size"] = 2
             train_config["gradient_accumulation_steps"] = 2
             train_config["gradient_checkpointing"] = False
-    
+
+    elif model == "SD1.5":
+        if vram_gb < 8:
+            train_config["batch_size"] = 1
+            train_config["gradient_accumulation_steps"] = 4
+            train_config["gradient_checkpointing"] = True
+        elif vram_gb < 12:
+            train_config["batch_size"] = 2
+            train_config["gradient_accumulation_steps"] = 2
+            train_config["gradient_checkpointing"] = True
+        else:
+            train_config["batch_size"] = 4
+            train_config["gradient_accumulation_steps"] = 1
+            train_config["gradient_checkpointing"] = False
+
     # Write config
     with open(output_path, "w") as f:
         yaml.dump(config, f, default_flow_style=False, sort_keys=False)
@@ -190,7 +249,7 @@ def main():
     )
     parser.add_argument(
         "--model",
-        choices=["FLUX", "SDXL", "SD15"],
+        choices=["FLUX", "SDXL", "SD1.5"],
         required=True,
         help="Model type",
     )

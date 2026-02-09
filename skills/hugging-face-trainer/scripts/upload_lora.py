@@ -22,16 +22,15 @@ def create_model_card(
 ) -> str:
     """Generate a model card for the LoRA."""
     
-    tags_str = ", ".join(tags) if tags else "lora, diffusion"
-    
+    default_tags = ["lora", "diffusion", "text-to-image"]
+    all_tags = list(dict.fromkeys(default_tags + tags))
+    tags_yaml = chr(10).join(f'- {tag}' for tag in all_tags)
+
     card = f"""---
 license: {license_type}
 library_name: diffusers
 tags:
-- lora
-- diffusion
-- text-to-image
-{chr(10).join(f'- {tag}' for tag in tags)}
+{tags_yaml}
 ---
 
 # LoRA Model
@@ -157,10 +156,12 @@ def main():
         
         print(f"📤 Uploading to {args.repo_id}...")
         
-        # Determine file extension
+        # Validate file extension
+        supported_exts = [".safetensors", ".bin", ".pt", ".pth"]
         ext = weights_path.suffix
-        if ext not in [".safetensors", ".bin", ".pt", ".pth"]:
-            ext = ".safetensors"
+        if ext not in supported_exts:
+            print(f"❌ Error: Unsupported file format '{ext}'. Supported: {', '.join(supported_exts)}", file=sys.stderr)
+            sys.exit(1)
         
         # Upload weights
         print(f"   Uploading {weights_path.name}...")

@@ -57,8 +57,8 @@ uv run scripts/create_model_repo.py --name "username/my-lora"
 
 # Upload trained weights
 uv run scripts/upload_lora.py \
-  -- weights ./output/model.safetensors \
-  -- repo_id "username/my-lora"
+  --weights ./output/model.safetensors \
+  --repo_id "username/my-lora"
 ```
 
 ## Configuration Templates
