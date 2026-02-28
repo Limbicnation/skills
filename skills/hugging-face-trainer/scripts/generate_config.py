@@ -157,7 +157,7 @@ CONFIG_TEMPLATES = {
                     "dtype": "fp16",
                 },
                 "model": {
-                    "name_or_path": "runwayml/stable-diffusion-v1-5",
+                    "name_or_path": "stable-diffusion-v1-5/stable-diffusion-v1-5",
                 },
             }],
         },

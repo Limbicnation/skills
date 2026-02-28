@@ -112,7 +112,7 @@ LORA_RANK = 64
 
 ### SD 1.5 (6GB VRAM)
 ```python
-BASE_MODEL = "runwayml/stable-diffusion-v1-5"
+BASE_MODEL = "stable-diffusion-v1-5/stable-diffusion-v1-5"
 RESOLUTION = 512
 BATCH_SIZE = 2
 GRADIENT_ACCUMULATION_STEPS = 2
@@ -179,6 +179,23 @@ uv run scripts/estimate_training.py \
   --resolution 512 \
   --batch_size 1 \
   --steps 2000
+```
+
+### `scripts/generate_config.py`
+Generate VRAM-optimized training config files for FLUX, SDXL, or SD1.5.
+```bash
+uv run scripts/generate_config.py \
+  --model "FLUX" \
+  --vram 12 \
+  --output "train_config.yaml"
+```
+
+### `scripts/validate_dataset.py`
+Validate dataset structure: checks images, captions, resolutions, and corruption.
+```bash
+uv run scripts/validate_dataset.py \
+  --data_dir "./training_data" \
+  --caption_ext "txt"
 ```
 
 ## Troubleshooting

@@ -123,7 +123,7 @@ Then add collision shape:
     "nodeName": "Ground",
     "properties": {
       "tile_set": "res://resources/tileset.tres",
-      "cell_quadrant_size": 16
+      "rendering_quadrant_size": 16
     }
   }
 }
