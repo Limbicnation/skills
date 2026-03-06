@@ -1,6 +1,3 @@
-A new version of huggingface_hub (1.5.0) is available! You are using version 1.6.0.
-To update, run: pip install -U huggingface_hub
-
 ---
 name: hf-cli
 description: "Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing repositories, models, datasets, and Spaces on the Hugging Face Hub. Replaces now deprecated `huggingface-cli` command."
@@ -8,11 +5,11 @@ description: "Hugging Face Hub CLI (`hf`) for downloading, uploading, and managi
 
 Install: `curl -LsSf https://hf.co/cli/install.sh | bash -s`.
 
-The Hugging Face Hub CLI tool `hf` is available. IMPORTANT: The `hf` command replaces the deprecated `huggingface-cli` command.
+The Hugging Face Hub CLI tool `hf` is available. IMPORTANT: The `hf` command replaces the deprecated `huggingface_cli` command.
 
 Use `hf --help` to view available functions. Note that auth commands are now all under `hf auth` e.g. `hf auth whoami`.
 
-Generated with `huggingface_hub v1.6.0`. Run `hf skills add --force` to regenerate.
+Generated with `huggingface_hub v1.5.0`. Run `hf skills add --force` to regenerate.
 
 ## Commands
 
@@ -64,20 +61,6 @@ Generated with `huggingface_hub v1.6.0`. Run `hf skills add --force` to regenera
 
 - `hf datasets info DATASET_ID` — Get info about a dataset on the Hub.
 - `hf datasets ls` — List datasets on the Hub.
-- `hf datasets parquet DATASET_ID` — List parquet file URLs available for a dataset.
-- `hf datasets sql SQL` — Execute a raw SQL query with DuckDB against dataset parquet URLs.
-
-### `hf discussions` — Manage discussions and pull requests on the Hub.
-
-- `hf discussions close REPO_ID NUM` — Close a discussion or pull request.
-- `hf discussions comment REPO_ID NUM` — Comment on a discussion or pull request.
-- `hf discussions create REPO_ID title` — Create a new discussion or pull request on a repo.
-- `hf discussions diff REPO_ID NUM` — Show the diff of a pull request.
-- `hf discussions info REPO_ID NUM` — Get info about a discussion or pull request.
-- `hf discussions list REPO_ID` — List discussions and pull requests on a repo.
-- `hf discussions merge REPO_ID NUM` — Merge a pull request.
-- `hf discussions rename REPO_ID NUM NEW_TITLE` — Rename a discussion or pull request.
-- `hf discussions reopen REPO_ID NUM` — Reopen a closed discussion or pull request.
 
 ### `hf endpoints` — Manage Hugging Face Inference Endpoints.
 
@@ -125,7 +108,6 @@ Generated with `huggingface_hub v1.6.0`. Run `hf skills add --force` to regenera
 - `hf repos create REPO_ID` — Create a new repo on the Hub.
 - `hf repos delete REPO_ID` — Delete a repo from the Hub. This is an irreversible operation.
 - `hf repos delete-files REPO_ID PATTERNS` — Delete files from a repo on the Hub.
-- `hf repos duplicate FROM_ID` — Duplicate a repo on the Hub (model, dataset, or Space).
 - `hf repos move FROM_ID TO_ID` — Move a repository from a namespace to another namespace.
 - `hf repos settings REPO_ID` — Update the settings of a repository.
 - `hf repos tag` — Manage tags for a repo on the Hub.
@@ -133,24 +115,12 @@ Generated with `huggingface_hub v1.6.0`. Run `hf skills add --force` to regenera
 ### `hf skills` — Manage skills for AI assistants.
 
 - `hf skills add` — Download a skill and install it for an AI assistant.
-- `hf skills preview` — Print the generated SKILL.md to stdout.
 
 ### `hf spaces` — Interact with spaces on the Hub.
 
-- `hf spaces dev-mode SPACE_ID` — Enable or disable dev mode on a Space.
 - `hf spaces hot-reload SPACE_ID` — Hot-reload any Python file of a Space without a full rebuild + restart.
 - `hf spaces info SPACE_ID` — Get info about a space on the Hub.
 - `hf spaces ls` — List spaces on the Hub.
-
-### `hf webhooks` — Manage webhooks on the Hub.
-
-- `hf webhooks create watch` — Create a new webhook.
-- `hf webhooks delete WEBHOOK_ID` — Delete a webhook permanently.
-- `hf webhooks disable WEBHOOK_ID` — Disable an active webhook.
-- `hf webhooks enable WEBHOOK_ID` — Enable a disabled webhook.
-- `hf webhooks info WEBHOOK_ID` — Show full details for a single webhook as JSON.
-- `hf webhooks list` — List all webhooks for the current user.
-- `hf webhooks update WEBHOOK_ID` — Update an existing webhook. Only provided options are changed.
 
 ## Tips
 

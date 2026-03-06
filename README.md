@@ -90,7 +90,7 @@ This repository contains a few skills to get you started. You can also contribut
 | Name | Description | Documentation |
 |------|-------------|---------------|
 | `gradio` | Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts, or chatbots. | [SKILL.md](skills/huggingface-gradio/SKILL.md) |
-| `hugging-face-cli` | Execute Hugging Face Hub operations using the hf CLI. Download models/datasets, upload files, manage repos, and run cloud compute jobs. | [SKILL.md](skills/hugging-face-cli/SKILL.md) |
+| `hf-cli` | Execute Hugging Face Hub operations using the hf CLI. Download models/datasets, upload files, manage repos, and run cloud compute jobs. | [SKILL.md](skills/hf-cli/SKILL.md) |
 | `hugging-face-dataset-viewer` | Explore, query, and extract data from any Hugging Face dataset using the Dataset Viewer REST API and npx tooling. Zero Python dependencies — covers split/config discovery, row pagination, text search, filtering, SQL via parquetlens, and dataset upload via CLI. | [SKILL.md](skills/hugging-face-dataset-viewer/SKILL.md) |
 | `hugging-face-datasets` | Create and manage datasets on Hugging Face Hub. Supports initializing repos, defining configs/system prompts, streaming row updates, and SQL-based dataset querying/transformation. | [SKILL.md](skills/hugging-face-datasets/SKILL.md) |
 | `hugging-face-evaluation` | Add and manage evaluation results in Hugging Face model cards. Supports extracting eval tables from README content, importing scores from Artificial Analysis API, and running custom evaluations with vLLM/lighteval. | [SKILL.md](skills/hugging-face-evaluation/SKILL.md) |

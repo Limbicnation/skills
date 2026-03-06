@@ -39,8 +39,8 @@
       "description": "Build reusable scripts for Hugging Face API operations. Useful for chaining API calls or automating repeated tasks."
     },
     {
-      "name": "hugging-face-cli",
-      "source": "./skills/hugging-face-cli",
+      "name": "hf-cli",
+      "source": "./skills/hf-cli",
       "skills": "./",
       "description": "Execute Hugging Face Hub operations using the hf CLI. Download models/datasets, upload files, manage repos, and run cloud compute jobs."
     },
