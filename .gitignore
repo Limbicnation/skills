@@ -219,3 +219,6 @@ output.log
 
 # Log files
 *.log
+
+# Local reference repos
+anthropic/
