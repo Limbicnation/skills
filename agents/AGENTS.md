@@ -4,7 +4,8 @@ You have additional SKILLs documented in directories containing a "SKILL.md" fil
 
 These skills are:
  - gradio -> "skills/huggingface-gradio/SKILL.md"
- - hugging-face-cli -> "skills/hugging-face-cli/SKILL.md"
+ - hf-cli -> "skills/hf-cli/SKILL.md"
+ - hugging-face-dataset-viewer -> "skills/hugging-face-dataset-viewer/SKILL.md"
  - hugging-face-datasets -> "skills/hugging-face-datasets/SKILL.md"
  - hugging-face-evaluation -> "skills/hugging-face-evaluation/SKILL.md"
  - hugging-face-jobs -> "skills/hugging-face-jobs/SKILL.md"
@@ -18,7 +19,8 @@ IMPORTANT: You MUST read the SKILL.md file whenever the description of the skill
 <available_skills>
 
 gradio: `Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts, or chatbots.`
-hugging-face-cli: `Execute Hugging Face Hub operations using the `hf` CLI. Use when the user needs to download models/datasets/spaces, upload files to Hub repositories, create repos, manage local cache, or run compute jobs on HF infrastructure. Covers authentication, file transfers, repository creation, cache operations, and cloud compute.`
+hf-cli: `"Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing repositories, models, datasets, and Spaces on the Hugging Face Hub. Replaces now deprecated `huggingface-cli` command."`
+hugging-face-dataset-viewer: `Use this skill for Hugging Face Dataset Viewer API workflows that fetch subset/split metadata, paginate rows, search text, apply filters, download parquet URLs, and read size or statistics.`
 hugging-face-datasets: `Create and manage datasets on Hugging Face Hub. Supports initializing repos, defining configs/system prompts, streaming row updates, and SQL-based dataset querying/transformation. Designed to work alongside HF MCP server for comprehensive dataset workflows.`
 hugging-face-evaluation: `Add and manage evaluation results in Hugging Face model cards. Supports extracting eval tables from README content, importing scores from Artificial Analysis API, and running custom model evaluations with vLLM/lighteval. Works with the model-index metadata format.`
 hugging-face-jobs: `This skill should be used when users want to run any workload on Hugging Face Jobs infrastructure. Covers UV scripts, Docker-based jobs, hardware selection, cost estimation, authentication with tokens, secrets management, timeout configuration, and result persistence. Designed for general-purpose compute workloads including data processing, inference, experiments, batch jobs, and any Python-based tasks. Should be invoked for tasks involving cloud compute, GPU workloads, or when users mention running jobs on Hugging Face infrastructure without local setup.`
