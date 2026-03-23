@@ -16,13 +16,7 @@ This script runs evaluations on custom HuggingFace models using local GPU infere
 separate from inference provider scripts (which use external APIs).
 
 Usage (standalone):
-    python inspect_vllm_uv.py --model "meta-llama/Llama-3.2-1B" --task "mmlu"
-
-Usage (via HF Jobs):
-    hf jobs uv run inspect_vllm_uv.py \\
-        --flavor a10g-small \\
-        --secret HF_TOKEN=$HF_TOKEN \\
-        -- --model "meta-llama/Llama-3.2-1B" --task "mmlu"
+    uv run scripts/inspect_vllm_uv.py --model "meta-llama/Llama-3.2-1B" --task "mmlu"
 
 Model backends:
     - vllm: Fast inference with vLLM (recommended for large models)
@@ -187,16 +181,16 @@ def main() -> None:
         epilog="""
 Examples:
   # Run MMLU with vLLM backend
-  python inspect_vllm_uv.py --model meta-llama/Llama-3.2-1B --task mmlu
+  uv run scripts/inspect_vllm_uv.py --model meta-llama/Llama-3.2-1B --task mmlu
 
   # Run with HuggingFace Transformers backend
-  python inspect_vllm_uv.py --model meta-llama/Llama-3.2-1B --task mmlu --backend hf
+  uv run scripts/inspect_vllm_uv.py --model meta-llama/Llama-3.2-1B --task mmlu --backend hf
 
   # Run with limited samples for testing
-  python inspect_vllm_uv.py --model meta-llama/Llama-3.2-1B --task mmlu --limit 10
+  uv run scripts/inspect_vllm_uv.py --model meta-llama/Llama-3.2-1B --task mmlu --limit 10
 
   # Run on multiple GPUs with tensor parallelism
-  python inspect_vllm_uv.py --model meta-llama/Llama-3.2-70B --task mmlu --tensor-parallel-size 4
+  uv run scripts/inspect_vllm_uv.py --model meta-llama/Llama-3.2-70B --task mmlu --tensor-parallel-size 4
 
 Available tasks (from inspect-evals):
   - mmlu: Massive Multitask Language Understanding
@@ -207,11 +201,6 @@ Available tasks (from inspect-evals):
   - winogrande: Winograd Schema Challenge
   - humaneval: Code generation (HumanEval)
 
-Via HF Jobs:
-  hf jobs uv run inspect_vllm_uv.py \\
-      --flavor a10g-small \\
-      --secret HF_TOKEN=$HF_TOKEN \\
-      -- --model meta-llama/Llama-3.2-1B --task mmlu
         """,
     )
 

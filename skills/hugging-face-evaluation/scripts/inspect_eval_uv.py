@@ -8,7 +8,7 @@
 # ///
 
 """
-Entry point script for running inspect-ai evaluations via `hf jobs uv run`.
+Entry point script for running inspect-ai evaluations against Hugging Face inference providers.
 """
 
 from __future__ import annotations

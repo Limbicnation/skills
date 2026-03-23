@@ -10,19 +10,14 @@
 # ///
 
 """
-Entry point script for running lighteval evaluations with vLLM backend via `hf jobs uv run`.
+Entry point script for running lighteval evaluations with local GPU backends.
 
-This script runs evaluations using vLLM for efficient GPU inference on custom HuggingFace models.
-It is separate from inference provider scripts and evaluates models directly on the hardware.
+This script runs evaluations using vLLM or accelerate on custom HuggingFace models.
+It is separate from inference provider scripts and evaluates models directly on local hardware.
 
 Usage (standalone):
-    python lighteval_vllm_uv.py --model "meta-llama/Llama-3.2-1B" --tasks "leaderboard|mmlu|5"
+    uv run scripts/lighteval_vllm_uv.py --model "meta-llama/Llama-3.2-1B" --tasks "leaderboard|mmlu|5"
 
-Usage (via HF Jobs):
-    hf jobs uv run lighteval_vllm_uv.py \\
-        --flavor a10g-small \\
-        --secret HF_TOKEN=$HF_TOKEN \\
-        -- --model "meta-llama/Llama-3.2-1B" --tasks "leaderboard|mmlu|5"
 """
 
 from __future__ import annotations
@@ -181,16 +176,16 @@ def main() -> None:
         epilog="""
 Examples:
   # Run MMLU evaluation with vLLM
-  python lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B --tasks "leaderboard|mmlu|5"
+  uv run scripts/lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B --tasks "leaderboard|mmlu|5"
 
   # Run with accelerate backend instead of vLLM
-  python lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B --tasks "leaderboard|mmlu|5" --backend accelerate
+  uv run scripts/lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B --tasks "leaderboard|mmlu|5" --backend accelerate
 
   # Run with chat template for instruction-tuned models
-  python lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B-Instruct --tasks "leaderboard|mmlu|5" --use-chat-template
+  uv run scripts/lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B-Instruct --tasks "leaderboard|mmlu|5" --use-chat-template
 
   # Run with limited samples for testing
-  python lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B --tasks "leaderboard|mmlu|5" --max-samples 10
+  uv run scripts/lighteval_vllm_uv.py --model meta-llama/Llama-3.2-1B --tasks "leaderboard|mmlu|5" --max-samples 10
 
 Task format:
   Tasks use the format: "suite|task|num_fewshot"
@@ -300,4 +295,3 @@ Task format:
 
 if __name__ == "__main__":
     main()
-
